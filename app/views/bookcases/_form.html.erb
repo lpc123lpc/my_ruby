@@ -1,0 +1,47 @@
+<%= form_with(model: bookcase, local: true) do |form| %>
+  <% if bookcase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookcase.errors.count, "error") %> prohibited this bookcase from being saved:</h2>
+
+      <ul>
+        <% bookcase.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bookcaseid %>
+    <%= form.text_field :bookcaseid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floor %>
+    <%= form.number_field :floor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :partition %>
+    <%= form.text_field :partition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :line %>
+    <%= form.number_field :line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :column %>
+    <%= form.number_field :column %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

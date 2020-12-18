@@ -1,0 +1,2 @@
+class Bookclasee < ApplicationRecord
+end

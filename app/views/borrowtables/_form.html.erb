@@ -1,0 +1,52 @@
+<%= form_with(model: borrowtable,book_id:@book_id,book_title:@book_title, local: true) do |form| %>
+  <% if borrowtable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(borrowtable.errors.count, "error") %> prohibited this borrowtable from being saved:</h2>
+
+      <ul>
+        <% borrowtable.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Bookid:</strong>
+    <%= params[:book_id] %>
+  </p>
+
+  <p>
+    <strong>Booktitle:</strong>
+    <%= params[:book_title] %>
+  </p>
+
+  <p>
+    <strong>Borrowdate:</strong>
+    <%= Date.today %>
+  </p>
+
+  <p>
+    <strong>Returndate:</strong>
+    <%= Date.today + 30.day %>
+  </p>
+
+  <%= hidden_field_tag :book_id, params[:book_id] %>
+
+  <%= hidden_field_tag :book_title, params[:book_title] %>
+
+  <%= hidden_field_tag :borrow_date, Date.today %>
+
+  <%= hidden_field_tag :return_date, Date.today + 30.day %>
+
+  <%= params.inspect %>
+
+  <div class="field">
+    <%= form.label :borrowerid %>
+    <%= form.text_field :borrowerid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

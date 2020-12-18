@@ -1,0 +1,27 @@
+<%= form_with(model: bookclasee, local: true) do |form| %>
+  <% if bookclasee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookclasee.errors.count, "error") %> prohibited this bookclasee from being saved:</h2>
+
+      <ul>
+        <% bookclasee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :classid %>
+    <%= form.text_field :classid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :classname %>
+    <%= form.text_field :classname %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

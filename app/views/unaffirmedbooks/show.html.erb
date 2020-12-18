@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bookid:</strong>
+  <%= @unaffirmedbook.bookid %>
+</p>
+
+<p>
+  <strong>Booktitle:</strong>
+  <%= @unaffirmedbook.booktitle %>
+</p>
+
+<p>
+  <strong>Expected return:</strong>
+  <%= @unaffirmedbook.expected_return %>
+</p>
+
+<p>
+  <strong>Returndate:</strong>
+  <%= @unaffirmedbook.returndate %>
+</p>
+
+<p>
+  <strong>Overdue:</strong>
+  <%= @unaffirmedbook.overdue %>
+</p>
+
+<%= link_to 'Edit', edit_unaffirmedbook_path(@unaffirmedbook) %> |
+<%= link_to 'Back', unaffirmedbooks_path %>

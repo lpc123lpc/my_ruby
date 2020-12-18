@@ -1,0 +1,2 @@
+class Damagebook < ApplicationRecord
+end

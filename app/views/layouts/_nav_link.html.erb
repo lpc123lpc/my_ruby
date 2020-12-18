@@ -1,0 +1,3 @@
+<li class="nav-item <%= "active" if controller_name == ctrl %>">
+  <%= link_to(text, { :controller => "/" + ctrl, :action => :index }, { :class => "nav-link" }) %>
+</li>

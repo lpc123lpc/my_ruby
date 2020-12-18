@@ -1,0 +1,32 @@
+<%= form_with(model: press, local: true) do |form| %>
+  <% if press.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(press.errors.count, "error") %> prohibited this press from being saved:</h2>
+
+      <ul>
+        <% press.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pressid %>
+    <%= form.text_field :pressid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pressname %>
+    <%= form.text_field :pressname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pressdate %>
+    <%= form.date_select :pressdate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

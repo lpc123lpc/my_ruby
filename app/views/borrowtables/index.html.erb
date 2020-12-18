@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Borrowtables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bookid</th>
+      <th>Bookname</th>
+      <th>Borrowerid</th>
+      <th>Borrowdate</th>
+      <th>Returndate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @borrowtables.each do |borrowtable| %>
+      <tr>
+        <td><%= borrowtable.bookid %></td>
+        <td><%= borrowtable.bookname %></td>
+        <td><%= borrowtable.borrowerid %></td>
+        <td><%= borrowtable.borrowdate %></td>
+        <td><%= borrowtable.returndate %></td>
+        <td><%= link_to 'Show', borrowtable %></td>
+        <td><%= link_to 'Edit', edit_borrowtable_path(borrowtable) %></td>
+        <td><%= link_to 'Destroy', borrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '还书', borrowtable_path(id: borrowtable.id, book_id: borrowtable.bookid, book_title: borrowtable.bookname,
+                                               borrower_id: borrowtable.borrowerid, return_date: borrowtable.returndate),
+                        method: :delete, data: { confirm: '确定还书？'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Borrowtable', new_borrowtable_path %>

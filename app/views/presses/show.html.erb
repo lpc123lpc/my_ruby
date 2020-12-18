@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pressid:</strong>
+  <%= @press.pressid %>
+</p>
+
+<p>
+  <strong>Pressname:</strong>
+  <%= @press.pressname %>
+</p>
+
+<p>
+  <strong>Pressdate:</strong>
+  <%= @press.pressdate %>
+</p>
+
+<%= link_to 'Edit', edit_press_path(@press) %> |
+<%= link_to 'Back', presses_path %>

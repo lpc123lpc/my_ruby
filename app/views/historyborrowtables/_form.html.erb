@@ -1,0 +1,42 @@
+<%= form_with(model: historyborrowtable, local: true) do |form| %>
+  <% if historyborrowtable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(historyborrowtable.errors.count, "error") %> prohibited this historyborrowtable from being saved:</h2>
+
+      <ul>
+        <% historyborrowtable.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bookid %>
+    <%= form.text_field :bookid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bookname %>
+    <%= form.text_field :bookname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :borrowerid %>
+    <%= form.text_field :borrowerid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :borrowdate %>
+    <%= form.text_field :borrowdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returndate %>
+    <%= form.text_field :returndate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

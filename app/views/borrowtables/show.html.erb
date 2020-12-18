@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bookid:</strong>
+  <%= @borrowtable.bookid %>
+</p>
+
+<p>
+  <strong>Bookname:</strong>
+  <%= @borrowtable.bookname %>
+</p>
+
+<p>
+  <strong>Borrowerid:</strong>
+  <%= @borrowtable.borrowerid %>
+</p>
+
+<p>
+  <strong>Borrowdate:</strong>
+  <%= @borrowtable.borrowdate %>
+</p>
+
+<p>
+  <strong>Returndate:</strong>
+  <%= @borrowtable.returndate %>
+</p>
+
+<%= link_to 'Edit', edit_borrowtable_path(@borrowtable) %> |
+<%= link_to 'Back', borrowtables_path %>

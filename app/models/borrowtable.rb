@@ -1,0 +1,2 @@
+class Borrowtable < ApplicationRecord
+end

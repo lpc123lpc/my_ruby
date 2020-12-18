@@ -1,0 +1,42 @@
+<%= form_with(model: unaffirmedbook, local: true) do |form| %>
+  <% if unaffirmedbook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unaffirmedbook.errors.count, "error") %> prohibited this unaffirmedbook from being saved:</h2>
+
+      <ul>
+        <% unaffirmedbook.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bookid %>
+    <%= form.text_field :bookid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :booktitle %>
+    <%= form.text_field :booktitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expected_return %>
+    <%= form.text_field :expected_return %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returndate %>
+    <%= form.text_field :returndate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :overdue %>
+    <%= form.text_field :overdue %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
