@@ -24,7 +24,21 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
+    id = student_params[:id]
+    name = student_params[:name]
+    gender = student_params[:gender]
+    department = student_params[:department]
+    registration = params[:registration]
+    validity = params[:validity]
+    credit = params[:credit]
+    #@student = Student.new(student_params)
+    @student = Student.new(:id => id, :name => name, :gender => gender, :department => department,
+                           :registration => registration, :validity => validity, :credit => credit)
+    email = id + "@1.com"
+    user_id = "stu_" + id
+    user = User.new(:email => email, :userid => user_id, :password => id, :password_confirmation => id,
+                    :role => "student", :username => name)
+    user.save!
 
     respond_to do |format|
       if @student.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_073917) do
+ActiveRecord::Schema.define(version: 2020_12_19_081604) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_073917) do
     t.string "studentid"
     t.string "name"
     t.integer "gender"
-    t.string "department"
+    t.integer "department"
     t.date "registration"
     t.date "validity"
     t.integer "credit"

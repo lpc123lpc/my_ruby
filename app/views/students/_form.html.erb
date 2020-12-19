@@ -29,23 +29,27 @@
 
   <div class="field">
     <%= form.label :department %>
-    <%= form.text_field :department %>
+    <%= form.collection_select :department,Student.departments.map { |a|
+      [a.first,a.first]}, :first, :second %>
   </div>
 
-  <div class="field">
-    <%= form.label :registration %>
-    <%= form.date_select :registration %>
-  </div>
+  <%= hidden_field_tag :registration, Date.today %>
+  <%= hidden_field_tag :validity, Date.today + 365.day %>
+  <%= hidden_field_tag :credit, 100 %>
+  <p>
+    <strong>注册日期:</strong>
+    <%= Date.today %>
+  </p>
 
-  <div class="field">
-    <%= form.label :validity %>
-    <%= form.date_select :validity %>
-  </div>
+  <p>
+    <strong>有效日期:</strong>
+    <%= Date.today + 365.day %>
+  </p>
 
-  <div class="field">
-    <%= form.label :credit %>
-    <%= form.number_field :credit %>
-  </div>
+  <p>
+    <strong>信用分:</strong>
+    <%= 100 %>
+  </p>
 
   <div class="actions">
     <%= form.submit %>
