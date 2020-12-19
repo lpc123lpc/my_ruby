@@ -31,7 +31,6 @@ class StudentsController < ApplicationController
     registration = params[:registration]
     validity = params[:validity]
     credit = params[:credit]
-    #@student = Student.new(student_params)
     @student = Student.new(:id => id, :name => name, :gender => gender, :department => department,
                            :registration => registration, :validity => validity, :credit => credit)
     email = id + "@1.com"
