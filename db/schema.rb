@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_153446) do
+ActiveRecord::Schema.define(version: 2020_12_19_163901) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_12_19_153446) do
     t.string "journalname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.integer "journaltype"
     t.index ["journalid"], name: "index_journals_on_journalid", unique: true
   end
 

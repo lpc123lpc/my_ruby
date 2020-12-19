@@ -24,9 +24,6 @@
         <td><%= unaffirmedbook.expected_return %></td>
         <td><%= unaffirmedbook.returndate %></td>
         <td><%= unaffirmedbook.overdue %></td>
-        <td><%= link_to 'Show', unaffirmedbook %></td>
-        <td><%= link_to 'Edit', edit_unaffirmedbook_path(unaffirmedbook) %></td>
-        <td><%= link_to 'Destroy', unaffirmedbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to '确认归还', unaffirmedbook_path(id: unaffirmedbook.id, book_id: unaffirmedbook.bookid,book_title: unaffirmedbook.booktitle,
                                                     overdue: unaffirmedbook.overdue, borrower_id: unaffirmedbook.borrowerid),
                         method: :delete, data: { confirm: '确定还书？'} %></td>
@@ -40,4 +37,3 @@
 
 <br>
 
-<%= link_to 'New Unaffirmedbook', new_unaffirmedbook_path %>

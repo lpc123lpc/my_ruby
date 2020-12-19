@@ -21,6 +21,18 @@
     <%= form.text_field :journalname %>
   </div>
 
+  <div class="field">
+    <%= form.label :journaltype %>
+    <%= form.collection_select :journaltype,Journal.journaltypes.map { |a|
+      [a.first,a.first]}, :first, :second %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
