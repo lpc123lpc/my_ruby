@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_090021) do
+ActiveRecord::Schema.define(version: 2020_12_19_153446) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.date "death"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["authorid"], name: "index_authors_on_authorid", unique: true
   end
 
   create_table "bookcases", force: :cascade do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.integer "column"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bookcaseid"], name: "index_bookcases_on_bookcaseid", unique: true
   end
 
   create_table "bookclasees", force: :cascade do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "classname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["classid"], name: "index_bookclasees_on_classid", unique: true
   end
 
   create_table "books", force: :cascade do |t|
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state"
+    t.index ["bookid"], name: "index_books_on_bookid", unique: true
   end
 
   create_table "borrowtables", force: :cascade do |t|
@@ -61,6 +65,9 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.date "returndate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.index ["bookid"], name: "index_borrowtables_on_bookid", unique: true
+    t.index ["student_id"], name: "index_borrowtables_on_student_id"
   end
 
   create_table "damagebooks", force: :cascade do |t|
@@ -70,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bookid"], name: "index_damagebooks_on_bookid", unique: true
   end
 
   create_table "departments", force: :cascade do |t|
@@ -77,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "departmentname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["departmentid"], name: "index_departments_on_departmentid", unique: true
   end
 
   create_table "historyborrowtables", force: :cascade do |t|
@@ -87,6 +96,8 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "returndate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.index ["student_id"], name: "index_historyborrowtables_on_student_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -94,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "journalname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["journalid"], name: "index_journals_on_journalid", unique: true
   end
 
   create_table "managers", force: :cascade do |t|
@@ -106,6 +118,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["managerid"], name: "index_managers_on_managerid", unique: true
   end
 
   create_table "materials", force: :cascade do |t|
@@ -115,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.string "authorname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["departmentid"], name: "index_materials_on_departmentid", unique: true
   end
 
   create_table "presses", force: :cascade do |t|
@@ -123,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.date "pressdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["pressid"], name: "index_presses_on_pressid", unique: true
   end
 
   create_table "searches", force: :cascade do |t|
@@ -143,6 +158,9 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.integer "credit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["studentid"], name: "index_students_on_studentid", unique: true
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "unaffirmedbooks", force: :cascade do |t|
@@ -172,4 +190,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_090021) do
     t.index ["userid"], name: "index_users_on_userid", unique: true
   end
 
+  add_foreign_key "borrowtables", "students"
+  add_foreign_key "historyborrowtables", "students"
+  add_foreign_key "students", "users"
 end

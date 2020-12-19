@@ -1,31 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>图书信息</h1>
+<% if user_signed_in? %>
+  <h1>图书信息</h1>
 
-<%= form_with(url: '/books', method: 'get', local: true) do %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
-<% end %>
+  <%= form_with(url: '/books', method: 'get', local: true) do %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
-<%= link_to "Advanced Search", new_search_path %>
+  <%= link_to "高级检索", new_search_path %>
 
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Press</th>
-      <th>Price</th>
-      <th>Intime</th>
-      <th>Category</th>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>作者</th>
+      <th>出版社</th>
+      <th>价格</th>
+      <th>入库日期</th>
+      <th>图书类别</th>
       <th>图书状态</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-  <% if user_signed_in? %>
+
     <% @books.each do |book| %>
       <tr>
         <td><%= book.id %></td>
@@ -50,10 +51,12 @@
         <% end %>
       </tr>
     <% end %>
-    <% end %>
+
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Book', new_book_path %>
+<% if current_user.admin? %>
+  <%= link_to 'New Book', new_book_path %>
+<% end %>
+<% end %>

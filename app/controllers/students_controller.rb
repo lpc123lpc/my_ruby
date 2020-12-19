@@ -34,10 +34,12 @@ class StudentsController < ApplicationController
     @student = Student.new(:id => id, :name => name, :gender => gender, :department => department,
                            :registration => registration, :validity => validity, :credit => credit)
     email = id + "@1.com"
-    user_id = "stu_" + id
+    user_id = id
     user = User.new(:email => email, :userid => user_id, :password => id, :password_confirmation => id,
                     :role => "student", :username => name)
     user.save!
+
+    @student.user = user
 
     respond_to do |format|
       if @student.save

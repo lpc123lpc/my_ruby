@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Unaffirmedbooks</h1>
+<h1>待确认图书</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Bookid</th>
-      <th>Booktitle</th>
-      <th>Expected</th>
-      <th>Returndate</th>
-      <th>Overdue</th>
-      <th>Borrowerid</th>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>借阅者学号</th>
+      <th>规定归还日期</th>
+      <th>实际归还日期</th>
+      <th>是否逾期</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +18,12 @@
   <tbody>
     <% @unaffirmedbooks.each do |unaffirmedbook| %>
       <tr>
-        <td><%= unaffirmedbook.id %></td>
         <td><%= unaffirmedbook.bookid %></td>
         <td><%= unaffirmedbook.booktitle %></td>
+        <td><%= unaffirmedbook.borrowerid %></td>
         <td><%= unaffirmedbook.expected_return %></td>
         <td><%= unaffirmedbook.returndate %></td>
         <td><%= unaffirmedbook.overdue %></td>
-        <td><%= unaffirmedbook.borrowerid %></td>
         <td><%= link_to 'Show', unaffirmedbook %></td>
         <td><%= link_to 'Edit', edit_unaffirmedbook_path(unaffirmedbook) %></td>
         <td><%= link_to 'Destroy', unaffirmedbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>

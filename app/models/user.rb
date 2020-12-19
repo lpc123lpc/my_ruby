@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   enum role: [:admin, :student]
 
+  has_one :student
+
   def display_name
     if student?
       self.username + " (学生)"

@@ -5,6 +5,9 @@ class HistoryborrowtablesController < ApplicationController
   # GET /historyborrowtables.json
   def index
     @historyborrowtables = Historyborrowtable.all
+    if current_user.student?
+    @my_historyborrowtables = current_user.student.historyborrowtables
+    end
   end
 
   # GET /historyborrowtables/1
@@ -26,6 +29,7 @@ class HistoryborrowtablesController < ApplicationController
   def create
     @historyborrowtable = Historyborrowtable.new(historyborrowtable_params)
 
+    @historyborrowtable.student = current_user.student
     respond_to do |format|
       if @historyborrowtable.save
         format.html { redirect_to @historyborrowtable, notice: 'Historyborrowtable was successfully created.' }

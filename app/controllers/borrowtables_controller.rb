@@ -5,6 +5,9 @@ class BorrowtablesController < ApplicationController
   # GET /borrowtables.json
   def index
     @borrowtables = Borrowtable.all
+    if current_user.student?
+    @my_borrowtables = current_user.student.borrowtables
+    end
   end
 
   # GET /borrowtables/1
@@ -33,9 +36,15 @@ class BorrowtablesController < ApplicationController
     returndate = params[:return_date]
     @borrowtable = Borrowtable.new(:bookid => book_id, :bookname => book_title, :borrowerid => borrowerid,
                                    :borrowdate => borrowdate, :returndate => returndate)
+
+    @borrowtable.student = current_user.student
+
     historyborrowtable = Historyborrowtable.new(:bookid => book_id, :bookname => book_title, :borrowerid => borrowerid,
                                    :borrowdate => borrowdate, :returndate => "未归还")
+
+    historyborrowtable.student = current_user.student
     historyborrowtable.save!
+
 
     student = Student.find(borrowerid)
     if student.credit < 60
@@ -49,6 +58,7 @@ class BorrowtablesController < ApplicationController
     book = Book.find(book_id)
     book.state = "已借阅"
     book.save!
+
     respond_to do |format|
       if @borrowtable.save
         format.html { redirect_to @borrowtable, notice: '借阅成功!' }

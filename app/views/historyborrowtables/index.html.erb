@@ -1,35 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Historyborrowtables</h1>
+<h1>历史借阅记录</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Bookid</th>
-      <th>Bookname</th>
-      <th>Borrowerid</th>
-      <th>Borrowdate</th>
-      <th>Returndate</th>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>借阅者学号</th>
+      <th>借阅时间</th>
+      <th>归还时间</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @historyborrowtables.each do |historyborrowtable| %>
+  <% if user_signed_in? %>
+    <% if current_user.student? %>
+    <% @my_historyborrowtables.each do |historyborrowtable| %>
       <tr>
         <td><%= historyborrowtable.bookid %></td>
         <td><%= historyborrowtable.bookname %></td>
         <td><%= historyborrowtable.borrowerid %></td>
         <td><%= historyborrowtable.borrowdate %></td>
         <td><%= historyborrowtable.returndate %></td>
-        <td><%= link_to 'Show', historyborrowtable %></td>
-        <td><%= link_to 'Edit', edit_historyborrowtable_path(historyborrowtable) %></td>
-        <td><%= link_to 'Destroy', historyborrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
+  <% end %>
+
+    <% if current_user.admin? %>
+      <% @historyborrowtables.each do |historyborrowtable| %>
+        <tr>
+          <td><%= historyborrowtable.bookid %></td>
+          <td><%= historyborrowtable.bookname %></td>
+          <td><%= historyborrowtable.borrowerid %></td>
+          <td><%= historyborrowtable.borrowdate %></td>
+          <td><%= historyborrowtable.returndate %></td>
+          <td><%= link_to '详细信息', historyborrowtable %></td>
+          <td><%= link_to '删除本条记录', historyborrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Historyborrowtable', new_historyborrowtable_path %>
