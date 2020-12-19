@@ -33,7 +33,7 @@ class DamagebooksController < ApplicationController
     unaffirmedbook = Unaffirmedbook.find_by bookid: book_id
     unaffirmedbook.destroy
     book = Book.find(book_id)
-    book.author = "已损坏"
+    book.state = "已损坏"
     book.save!
     student = Student.find(borrower_id)
     student.credit = student.credit - 10
@@ -70,7 +70,7 @@ class DamagebooksController < ApplicationController
     book_id = params[:book_id]
     book_title = params[:book_title]
     book = Book.find(book_id)
-    book.author = "未借阅"
+    book.state = "未借阅"
     book.save!
 
     @damagebook.destroy

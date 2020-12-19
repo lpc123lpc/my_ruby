@@ -47,7 +47,7 @@ class BorrowtablesController < ApplicationController
     end
 
     book = Book.find(book_id)
-    book.author = "已借阅"
+    book.state = "已借阅"
     book.save!
     respond_to do |format|
       if @borrowtable.save

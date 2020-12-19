@@ -69,7 +69,7 @@ class UnaffirmedbooksController < ApplicationController
     historyborrowtable.save!
 
     book = Book.find(book_id)
-    book.author = "未借阅"
+    book.state = "未借阅"
     book.save!
 
     @unaffirmedbook.destroy

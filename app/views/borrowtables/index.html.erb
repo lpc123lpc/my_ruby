@@ -1,20 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Borrowtables</h1>
+<h1>借阅列表</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Bookid</th>
-      <th>Bookname</th>
-      <th>Borrowerid</th>
-      <th>Borrowdate</th>
-      <th>Returndate</th>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>借阅者id</th>
+      <th>借阅时间</th>
+      <th>预计归还日期</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <% if user_signed_in? %>
     <% @borrowtables.each do |borrowtable| %>
       <tr>
         <td><%= borrowtable.bookid %></td>
@@ -25,10 +26,13 @@
         <td><%= link_to 'Show', borrowtable %></td>
         <td><%= link_to 'Edit', edit_borrowtable_path(borrowtable) %></td>
         <td><%= link_to 'Destroy', borrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to '还书', borrowtable_path(id: borrowtable.id, book_id: borrowtable.bookid, book_title: borrowtable.bookname,
+        <% if current_user.student? %>
+          <td><%= link_to '还书', borrowtable_path(id: borrowtable.id, book_id: borrowtable.bookid, book_title: borrowtable.bookname,
                                                borrower_id: borrowtable.borrowerid, return_date: borrowtable.returndate),
                         method: :delete, data: { confirm: '确定还书？'} %></td>
+        <% end %>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
