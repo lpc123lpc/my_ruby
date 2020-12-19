@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= form.label :departmentid %>
-    <%= form.text_field :departmentid %>
+    <%= form.collection_select :departmentid,Material.departmentids.map { |a|
+      [a.first,a.first]}, :first, :second %>
   </div>
 
   <div class="field">

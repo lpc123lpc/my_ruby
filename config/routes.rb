@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :textbooks
   devise_for :users
   resources :historyborrowtables
   resources :unaffirmedbooks
