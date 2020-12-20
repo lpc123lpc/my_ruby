@@ -1,39 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id:</strong>
+  <strong>图书编号:</strong>
   <%= @book.id %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>书名:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>作者:</strong>
   <%= @book.author %>
 </p>
 
 <p>
-  <strong>Press:</strong>
+  <strong>出版社:</strong>
   <%= @book.press %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>价格:</strong>
   <%= @book.price %>
 </p>
 
 <p>
-  <strong>Intime:</strong>
+  <strong>入库时间:</strong>
   <%= @book.intime %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong>类别:</strong>
   <%= @book.category %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<p>
+  <strong>图书状态:</strong>
+  <%= @book.state %>
+</p>
+
+<%= link_to '返回', books_path %>

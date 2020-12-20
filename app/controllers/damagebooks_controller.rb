@@ -41,7 +41,7 @@ class DamagebooksController < ApplicationController
 
     respond_to do |format|
       if @damagebook.save
-        format.html { redirect_to @damagebook, notice: 'Damagebook was successfully created.' }
+        format.html { redirect_to @damagebook, notice: '成功加入损坏图书列表！' }
         format.json { render :show, status: :created, location: @damagebook }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class DamagebooksController < ApplicationController
   def update
     respond_to do |format|
       if @damagebook.update(damagebook_params)
-        format.html { redirect_to @damagebook, notice: 'Damagebook was successfully updated.' }
+        format.html { redirect_to @damagebook, notice: '损坏图书信息更新成功！' }
         format.json { render :show, status: :ok, location: @damagebook }
       else
         format.html { render :edit }
@@ -75,7 +75,7 @@ class DamagebooksController < ApplicationController
 
     @damagebook.destroy
     respond_to do |format|
-      format.html { redirect_to damagebooks_url, notice: 'Damagebook was successfully destroyed.' }
+      format.html { redirect_to damagebooks_url, notice: '入库成功！' }
       format.json { head :no_content }
     end
   end

@@ -20,9 +20,6 @@
         <td><%= damagebook.bookname %></td>
         <td><%= damagebook.level %></td>
         <td><%= damagebook.date %></td>
-        <td><%= link_to 'Show', damagebook %></td>
-        <td><%= link_to 'Edit', edit_damagebook_path(damagebook) %></td>
-        <td><%= link_to 'Destroy', damagebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to '修复完成，出库', damagebook_path(id: damagebook.id, book_id: damagebook.bookid,
                                                    book_title: damagebook.bookname),
                         method: :delete, data: { confirm: '确定出库?' } %></td>

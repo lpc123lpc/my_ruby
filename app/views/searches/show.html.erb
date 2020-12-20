@@ -1,5 +1,4 @@
-<h1>Search Results</h1>
-<p><%= link_to "Back", new_search_path %></p>
+<h1>搜索结果</h1>
 
 <% if @search.search_book.empty? %>
   <p>No book were found.</p>
@@ -7,9 +6,14 @@
   <table>
     <thead>
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Press</th>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>作者</th>
+      <th>出版社</th>
+      <th>价格</th>
+      <th>入库日期</th>
+      <th>图书类别</th>
+      <th>图书状态</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -17,14 +21,35 @@
     <tbody>
     <% @search.search_book.each do |book| %>
       <tr>
+        <td><%= book.id %></td>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.press %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= book.price %></td>
+        <td><%= book.intime %></td>
+        <td><%= book.category %></td>
+        <td><%= book.state %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to '编辑图书信息', edit_book_path(book) %></td>
+          <td><%= link_to '删除图书', book, method: :delete, data: { confirm: '确定删除本图书?' } %></td>
+        <% end %>
+        <td><%= link_to '显示详细信息', book %></td>
+        <% if current_user.student? %>
+          <% if book.state == "已借阅" || book.state == "已损坏"%>
+            <td><%= "暂时无法借阅" %></td>
+          <% else %>
+            <td><%= link_to '借阅本书', new_borrowtable_path(:book_id => book.id, :book_title => book.title) %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
+<% end %>
+
+<br>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p><%= link_to "返回", new_search_path %></p>
+  <% end %>
 <% end %>

@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Journalid:</strong>
+  <strong>报刊编号:</strong>
   <%= @journal.journalid %>
 </p>
 
 <p>
-  <strong>Journalname:</strong>
+  <strong>报刊名:</strong>
   <%= @journal.journalname %>
 </p>
 
-<%= link_to 'Edit', edit_journal_path(@journal) %> |
-<%= link_to 'Back', journals_path %>
+<p>
+  <strong>类别:</strong>
+  <%= @journal.journaltype %>
+</p>
+
+<p>
+  <strong>发行日期:</strong>
+  <%= @journal.date %>
+</p>
+
+<%= link_to '返回', journals_path %>

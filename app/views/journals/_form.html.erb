@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :journalid %>
+    <%= form.label :报刊编号 %>
     <%= form.text_field :journalid %>
   </div>
 
   <div class="field">
-    <%= form.label :journalname %>
+    <%= form.label :报刊名 %>
     <%= form.text_field :journalname %>
   </div>
 
   <div class="field">
-    <%= form.label :journaltype %>
+    <%= form.label :类别 %>
     <%= form.collection_select :journaltype,Journal.journaltypes.map { |a|
       [a.first,a.first]}, :first, :second %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :发行日期 %>
     <%= form.date_select :date %>
   </div>
 

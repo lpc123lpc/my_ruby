@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Department:</strong>
+  <strong>系号:</strong>
   <%= @textbook.department %>
 </p>
 
 <p>
-  <strong>Term:</strong>
+  <strong>学期:</strong>
   <%= @textbook.term %>
 </p>
 
 <p>
-  <strong>Bookname:</strong>
+  <strong>书名:</strong>
   <%= @textbook.bookname %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>作者:</strong>
   <%= @textbook.author %>
 </p>
 
 <p>
-  <strong>Press:</strong>
+  <strong>出版社:</strong>
   <%= @textbook.press %>
 </p>
 
-<%= link_to 'Edit', edit_textbook_path(@textbook) %> |
-<%= link_to 'Back', textbooks_path %>
+<%= link_to '返回', textbooks_path %>

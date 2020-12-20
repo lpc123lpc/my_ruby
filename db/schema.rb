@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_113151) do
+ActiveRecord::Schema.define(version: 2020_12_20_131743) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_113151) do
   create_table "damagebooks", force: :cascade do |t|
     t.string "bookid"
     t.string "bookname"
-    t.string "level"
+    t.integer "level"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

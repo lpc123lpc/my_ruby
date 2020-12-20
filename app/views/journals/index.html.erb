@@ -22,7 +22,7 @@
         <td><%= journal.date %></td>
         <% if current_user.admin? %>
           <td><%= link_to '编辑报刊信息', edit_journal_path(journal) %></td>
-          <td><%= link_to '删除报刊', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '删除报刊', journal, method: :delete, data: { confirm: '确定删除报刊?' } %></td>
         <% end %>
       </tr>
     <% end %>

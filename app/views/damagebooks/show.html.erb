@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Bookid:</strong>
+  <strong>图书编号:</strong>
   <%= @damagebook.bookid %>
 </p>
 
 <p>
-  <strong>Bookname:</strong>
+  <strong>书名:</strong>
   <%= @damagebook.bookname %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong>损坏等级:</strong>
   <%= @damagebook.level %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>损坏日期:</strong>
   <%= @damagebook.date %>
 </p>
 
-<%= link_to 'Edit', edit_damagebook_path(@damagebook) %> |
-<%= link_to 'Back', damagebooks_path %>
+<%= link_to '返回', damagebooks_path %>

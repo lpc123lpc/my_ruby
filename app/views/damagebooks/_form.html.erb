@@ -12,22 +12,22 @@
   <% end %>
 
   <p>
-    <strong>Bookid:</strong>
+    <strong>图书编号:</strong>
     <%= params[:book_id] %>
   </p>
 
   <p>
-    <strong>Booktitle:</strong>
+    <strong>书名:</strong>
     <%= params[:book_title] %>
   </p>
 
   <p>
-    <strong>Borrowerid:</strong>
+    <strong>借阅者学号:</strong>
     <%= params[:borrower_id] %>
   </p>
 
   <p>
-    <strong>Damagedate:</strong>
+    <strong>损坏日期:</strong>
     <%= Date.today %>
   </p>
 
@@ -41,8 +41,9 @@
 
 
   <div class="field">
-    <%= form.label :level %>
-    <%= form.text_field :level %>
+    <%= form.label :损坏等级 %>
+    <%= form.collection_select :level,Damagebook.levels.map { |a|
+      [a.first,a.first]}, :first, :second %>
   </div>
 
   <div class="actions">

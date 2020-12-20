@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :id %>
+    <%= form.label :图书编号 %>
     <%= form.text_field :id %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :书名 %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :author %>
+    <%= form.label :作者 %>
     <%= form.text_field :author %>
   </div>
 
   <div class="field">
-    <%= form.label :press %>
+    <%= form.label :出版社 %>
     <%= form.text_field :press %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :价格 %>
     <%= form.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :intime %>
+    <%= form.label :入库时间 %>
     <%= form.date_select :intime %>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
+    <%= form.label :类别 %>
     <%= form.collection_select :category,Book.categories.map { |a|
       [a.first,a.first]}, :first, :second %>
   </div>

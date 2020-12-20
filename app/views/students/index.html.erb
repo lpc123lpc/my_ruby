@@ -28,7 +28,7 @@
         <td><%= student.credit %></td>
         <td><%= link_to '详细信息', student %></td>
         <td><%= link_to '编辑学生信息', edit_student_path(student) %></td>
-        <td><%= link_to '删除学生', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '删除学生', student, method: :delete, data: { confirm: '确定删除学生?' } %></td>
       </tr>
     <% end %>
   </tbody>

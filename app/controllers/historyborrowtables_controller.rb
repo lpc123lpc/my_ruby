@@ -32,7 +32,7 @@ class HistoryborrowtablesController < ApplicationController
     @historyborrowtable.student = current_user.student
     respond_to do |format|
       if @historyborrowtable.save
-        format.html { redirect_to @historyborrowtable, notice: 'Historyborrowtable was successfully created.' }
+        format.html { redirect_to @historyborrowtable, notice: '成功加入历史借阅记录！' }
         format.json { render :show, status: :created, location: @historyborrowtable }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class HistoryborrowtablesController < ApplicationController
   def destroy
     @historyborrowtable.destroy
     respond_to do |format|
-      format.html { redirect_to historyborrowtables_url, notice: 'Historyborrowtable was successfully destroyed.' }
+      format.html { redirect_to historyborrowtables_url, notice: '借阅记录删除成功！' }
       format.json { head :no_content }
     end
   end

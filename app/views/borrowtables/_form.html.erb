@@ -12,23 +12,28 @@
   <% end %>
 
   <p>
-    <strong>Bookid:</strong>
+    <strong>图书编号:</strong>
     <%= params[:book_id] %>
   </p>
 
   <p>
-    <strong>Booktitle:</strong>
+    <strong>书名:</strong>
     <%= params[:book_title] %>
   </p>
 
   <p>
-    <strong>Borrowdate:</strong>
+    <strong>借阅时间:</strong>
     <%= Date.today %>
   </p>
 
   <p>
-    <strong>Returndate:</strong>
+    <strong>借阅日期:</strong>
     <%= Date.today + 30.day %>
+  </p>
+
+  <p>
+    <strong>借阅人学号:</strong>
+    <%= current_user.userid %>
   </p>
 
   <%= hidden_field_tag :book_id, params[:book_id] %>
@@ -39,12 +44,7 @@
 
   <%= hidden_field_tag :return_date, Date.today + 30.day %>
 
-  <%= params.inspect %>
-
-  <div class="field">
-    <%= form.label :borrowerid %>
-    <%= form.text_field :borrowerid %>
-  </div>
+  <%= hidden_field_tag :borrowerid, current_user.userid %>
 
   <div class="actions">
     <%= form.submit %>

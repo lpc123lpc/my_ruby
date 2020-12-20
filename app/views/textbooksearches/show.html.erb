@@ -1,5 +1,4 @@
-<h1>Search Results</h1>
-<p><%= link_to "Back", new_textbooksearch_path %></p>
+<h1>搜索结果</h1>
 
 <% if @textbooksearch.textbooksearch_textbook.empty? %>
   <p>No Textbook were found.</p>
@@ -7,9 +6,11 @@
   <table>
     <thead>
     <tr>
-      <th>Name</th>
-      <th>department</th>
-      <th>term</th>
+      <th>系号</th>
+      <th>学期</th>
+      <th>教材名称</th>
+      <th>作者</th>
+      <th>出版社</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -17,14 +18,25 @@
     <tbody>
     <% @textbooksearch.textbooksearch_textbook.each do |textbook| %>
       <tr>
-        <td><%= textbook.bookname %></td>
         <td><%= textbook.department %></td>
         <td><%= textbook.term %></td>
-        <td><%= link_to 'Show', textbook %></td>
-        <td><%= link_to 'Edit', edit_textbook_path(textbook) %></td>
-        <td><%= link_to 'Destroy', textbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= textbook.bookname %></td>
+        <td><%= textbook.author %></td>
+        <td><%= textbook.press %></td>
+        <td><%= textbook.term %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to '编辑信息', edit_textbook_path(textbook) %></td>
+          <td><%= link_to '删除教材', textbook, method: :delete, data: { confirm: '确定删除本教材?' } %></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
+<% end %>
+
+<br>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p><%= link_to "返回", new_textbooksearch_path %></p>
+  <% end %>
 <% end %>

@@ -39,7 +39,7 @@
         <td><%= book.state %></td>
         <% if current_user.admin? %>
           <td><%= link_to '编辑图书信息', edit_book_path(book) %></td>
-          <td><%= link_to '删除图书', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '删除图书', book, method: :delete, data: { confirm: '确定删除图书?' } %></td>
         <% end %>
         <td><%= link_to '显示详细信息', book %></td>
         <% if current_user.student? %>

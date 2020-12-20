@@ -31,7 +31,7 @@ class BorrowtablesController < ApplicationController
   def create
     book_id = params[:book_id]
     book_title = params[:book_title]
-    borrowerid = borrowtable_params[:borrowerid]
+    borrowerid = params[:borrowerid]
     borrowdate = params[:borrow_date]
     returndate = params[:return_date]
     @borrowtable = Borrowtable.new(:bookid => book_id, :bookname => book_title, :borrowerid => borrowerid,
@@ -75,7 +75,7 @@ class BorrowtablesController < ApplicationController
   def update
     respond_to do |format|
       if @borrowtable.update(borrowtable_params)
-        format.html { redirect_to @borrowtable, notice: 'Borrowtable was successfully updated.' }
+        format.html { redirect_to @borrowtable, notice: '更新借阅信息成功！' }
         format.json { render :show, status: :ok, location: @borrowtable }
       else
         format.html { render :edit }
@@ -102,7 +102,7 @@ class BorrowtablesController < ApplicationController
     unaffirmedbook.save!
     @borrowtable.destroy
     respond_to do |format|
-      format.html { redirect_to borrowtables_url, notice: 'Borrowtable was successfully destroyed.' }
+      format.html { redirect_to borrowtables_url, notice: '还书成功' }
       format.json { head :no_content }
     end
   end

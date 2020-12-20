@@ -1,16 +1,16 @@
-<h1>Advanced Search</h1>
+<h1>高级检索</h1>
 
 <%= form_with model: @search do |f| %>
-  <%= f.label :title %>
+  <%= f.label :书名 %>
   <%= f.text_field :title %>
 
-  <%= f.label :author %>
+  <%= f.label :作者 %>
   <%= f.select :author, options_for_select(@authors), include_blank: true %><br>
 
-  <%= f.label :press %>
+  <%= f.label :出版社 %>
   <%= f.select :press, options_for_select(@presses), include_blank: true %><br><br>
 
-  <%= f.submit "Search" %>
+  <%= f.submit "搜索" %>
 <% end %>
 
-<p><%= link_to "Back", '/books' %></p>
+<p><%= link_to "返回", '/books' %></p>

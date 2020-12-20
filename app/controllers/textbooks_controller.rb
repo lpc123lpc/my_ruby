@@ -28,7 +28,7 @@ class TextbooksController < ApplicationController
 
     respond_to do |format|
       if @textbook.save
-        format.html { redirect_to @textbook, notice: 'Textbook was successfully created.' }
+        format.html { redirect_to @textbook, notice: '成功添加教材！' }
         format.json { render :show, status: :created, location: @textbook }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TextbooksController < ApplicationController
   def update
     respond_to do |format|
       if @textbook.update(textbook_params)
-        format.html { redirect_to @textbook, notice: 'Textbook was successfully updated.' }
+        format.html { redirect_to @textbook, notice: '教材信息更新成功！' }
         format.json { render :show, status: :ok, location: @textbook }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TextbooksController < ApplicationController
   def destroy
     @textbook.destroy
     respond_to do |format|
-      format.html { redirect_to textbooks_url, notice: 'Textbook was successfully destroyed.' }
+      format.html { redirect_to textbooks_url, notice: '成功删除教材信息！' }
       format.json { head :no_content }
     end
   end
