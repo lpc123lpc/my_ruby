@@ -4,7 +4,7 @@ class TextbooksController < ApplicationController
   # GET /textbooks
   # GET /textbooks.json
   def index
-    @textbooks = Textbook.all
+    @textbooks = Textbook.search(params[:search])
   end
 
   # GET /textbooks/1

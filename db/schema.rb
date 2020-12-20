@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_170840) do
+ActiveRecord::Schema.define(version: 2020_12_20_113151) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -166,11 +166,19 @@ ActiveRecord::Schema.define(version: 2020_12_19_170840) do
   end
 
   create_table "textbooks", force: :cascade do |t|
-    t.integer "department"
-    t.integer "term"
+    t.string "department"
+    t.string "term"
     t.string "bookname"
     t.string "author"
     t.string "press"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "textbooksearches", force: :cascade do |t|
+    t.string "bookname"
+    t.string "department"
+    t.string "term"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

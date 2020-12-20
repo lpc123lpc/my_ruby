@@ -1,0 +1,16 @@
+<h1>Advanced Search</h1>
+
+<%= form_with model: @textbooksearch do |f| %>
+  <%= f.label :bookname %>
+  <%= f.text_field :bookname %>
+
+  <%= f.label :department %>
+  <%= f.select :department, options_for_select(@departments), include_blank: true %><br>
+
+  <%= f.label :term %>
+  <%= f.select :term, options_for_select(@terms), include_blank: true%><br><br>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+<p><%= link_to "Back", '/textbooks' %></p>

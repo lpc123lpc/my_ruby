@@ -13,14 +13,12 @@
 
   <div class="field">
     <%= form.label :department %>
-    <%= form.collection_select :department,Textbook.departments.map { |a|
-      [a.first,a.first]}, :first, :second %>
+    <%= form.text_field :department %>
   </div>
 
   <div class="field">
     <%= form.label :term %>
-    <%= form.collection_select :term,Textbook.terms.map { |a|
-      [a.first,a.first]}, :first, :second %>
+    <%= form.text_field :term %>
   </div>
 
   <div class="field">
