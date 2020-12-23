@@ -62,7 +62,14 @@ class UnaffirmedbooksController < ApplicationController
       student = Student.find(borrower_id)
       student.credit = student.credit - 5
       student.save!
+    else
+      student = Student.find(borrower_id)
+      if student.credit < 100
+      student.credit = student.credit + 2 > 100 ? 100 : student.credit + 2
+      student.save!
+      end
     end
+
 
     historyborrowtable = Historyborrowtable.find(book_id)
     historyborrowtable.returndate = Date.today

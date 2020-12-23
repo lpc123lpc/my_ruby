@@ -47,13 +47,6 @@ class BorrowtablesController < ApplicationController
 
 
     student = Student.find(borrowerid)
-    if student.credit < 60
-      respond_to do |format|
-      format.html { redirect_to books_path, notice: '信用分过低，无法借书，请信用分大于60分后再执行操作。'}
-      #format.json { render :show, status: :created, location: @borrowtable }
-      return
-      end
-    end
 
     book = Book.find(book_id)
     book.state = "已借阅"

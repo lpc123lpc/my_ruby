@@ -46,7 +46,11 @@
           <% if book.state == "已借阅" || book.state == "已损坏" || book.state == "丢失"%>
             <td><%= "暂时无法借阅" %></td>
           <% else %>
-            <td><%= link_to '借阅本书', new_borrowtable_path(:book_id => book.id, :book_title => book.title) %></td>
+            <% if current_user.student.credit < 60 %>
+              <td><%= "信用分过低" %></td>
+            <% else %>
+              <td><%= link_to '借阅本书', new_borrowtable_path(:book_id => book.id, :book_title => book.title) %></td>
+            <% end %>
           <% end %>
         <% end %>
       </tr>
