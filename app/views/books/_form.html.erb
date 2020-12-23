@@ -47,6 +47,11 @@
       [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
 
+  <div>
+    <%= form.label :封面 %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit "确认",class:"btn btn-primary"%>
   </div>

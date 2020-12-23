@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_085859) do
+ActiveRecord::Schema.define(version: 2020_12_23_144458) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -43,19 +43,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_085859) do
     t.index ["classid"], name: "index_bookclasees_on_classid", unique: true
   end
 
-  create_table "books", force: :cascade do |t|
-    t.string "bookid"
-    t.string "title"
-    t.string "author"
-    t.string "press"
-    t.float "price"
-    t.date "intime"
-    t.integer "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "state"
-    t.index ["bookid"], name: "index_books_on_bookid", unique: true
-  end
+# Could not dump table "books" because of following StandardError
+#   Unknown type 'attachment' for column 'image'
 
   create_table "borrowtables", force: :cascade do |t|
     t.string "bookid"

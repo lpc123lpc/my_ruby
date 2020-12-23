@@ -18,7 +18,7 @@ function drawSimpleChart(data, name, color) {
                 {
                     label: name,
                     data: outByDate,
-                    borderColor: `rgba(${color}, 1)`,
+                    //borderColor: `rgba(${color}, 1)`,
                     backgroundColor: `rgba(${color}, 0.8)`
                 }
             ]

@@ -51,7 +51,7 @@ class LostbooksController < ApplicationController
 
     respond_to do |format|
       if @lostbook.save
-        format.html { redirect_to @lostbook, notice: 'Lostbook was successfully created.' }
+        format.html { redirect_to @lostbook, notice: '确认成功！' }
         format.json { render :show, status: :created, location: @lostbook }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class LostbooksController < ApplicationController
   def update
     respond_to do |format|
       if @lostbook.update(lostbook_params)
-        format.html { redirect_to @lostbook, notice: 'Lostbook was successfully updated.' }
+        format.html { redirect_to @lostbook, notice: '更新成功！' }
         format.json { render :show, status: :ok, location: @lostbook }
       else
         format.html { render :edit }
@@ -89,7 +89,7 @@ class LostbooksController < ApplicationController
 
     @lostbook.destroy
     respond_to do |format|
-      format.html { redirect_to lostbooks_url, notice: 'Lostbook was successfully destroyed.' }
+      format.html { redirect_to lostbooks_url, notice: '入库成功！' }
       format.json { head :no_content }
     end
   end
