@@ -1,0 +1,2 @@
+module LostbooksHelper
+end

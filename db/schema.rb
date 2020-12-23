@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_131743) do
+ActiveRecord::Schema.define(version: 2020_12_23_085859) do
 
   create_table "authors", force: :cascade do |t|
     t.string "authorid"
@@ -108,6 +108,20 @@ ActiveRecord::Schema.define(version: 2020_12_20_131743) do
     t.date "date"
     t.integer "journaltype"
     t.index ["journalid"], name: "index_journals_on_journalid", unique: true
+  end
+
+  create_table "lostbooks", force: :cascade do |t|
+    t.string "bookid"
+    t.string "booktitle"
+    t.string "author"
+    t.string "press"
+    t.string "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id", null: false
+    t.string "lostdate"
+    t.string "borrowerid"
+    t.index ["student_id"], name: "index_lostbooks_on_student_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -212,5 +226,6 @@ ActiveRecord::Schema.define(version: 2020_12_20_131743) do
 
   add_foreign_key "borrowtables", "students"
   add_foreign_key "historyborrowtables", "students"
+  add_foreign_key "lostbooks", "students"
   add_foreign_key "students", "users"
 end

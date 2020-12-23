@@ -32,6 +32,7 @@
         <%= render 'layouts/nav_link', text: "图书列表", ctrl: "books" %>
         <%= render 'layouts/nav_link', text: "报刊", ctrl: "journals" %>
         <%= render 'layouts/nav_link', text: "教材清单", ctrl: "textbooks" %>
+        <%= render 'layouts/nav_link', text: "丢失图书", ctrl: "lostbooks" %>
         <%= render 'layouts/nav_link', text: "当前借阅列表", ctrl: "borrowtables" %>
         <%= render 'layouts/nav_link', text: "历史借阅记录", ctrl: "historyborrowtables" %>
       <% end %>
@@ -41,6 +42,11 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <span class="nav-link"><%= current_user.display_name %></span>
+        </li>
+        <li class="nav-item active">
+          <% if current_user.student? %>
+            <%= render 'layouts/nav_link', text: "个人信息", ctrl: "students" %>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to "注销", destroy_user_session_path, method: :delete, :class => 'nav-link' %>

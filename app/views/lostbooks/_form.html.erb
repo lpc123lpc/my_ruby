@@ -1,0 +1,46 @@
+<%= form_with(model: lostbook, local: true) do |form| %>
+  <% if lostbook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lostbook.errors.count, "error") %> prohibited this lostbook from being saved:</h2>
+
+      <ul>
+        <% lostbook.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>图书编号:</strong>
+    <%= params[:book_id] %>
+  </p>
+
+  <p>
+    <strong>书名:</strong>
+    <%= params[:book_title] %>
+  </p>
+
+  <p>
+    <strong>丢失时间:</strong>
+    <%= Date.today %>
+  </p>
+
+  <p>
+    <strong>借阅人学号:</strong>
+    <%= current_user.userid %>
+  </p>
+
+  <%= hidden_field_tag :book_id, params[:book_id] %>
+
+  <%= hidden_field_tag :book_title, params[:book_title] %>
+
+  <%= hidden_field_tag :lost_date, Date.today %>
+
+  <%= hidden_field_tag :borrowerid, current_user.userid %>
+
+
+  <div class="actions">
+    <%= form.submit "确认"%>
+  </div>
+<% end %>

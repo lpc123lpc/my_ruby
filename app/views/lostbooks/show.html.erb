@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bookid:</strong>
+  <%= @lostbook.bookid %>
+</p>
+
+<p>
+  <strong>Booktitle:</strong>
+  <%= @lostbook.booktitle %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @lostbook.author %>
+</p>
+
+<p>
+  <strong>Press:</strong>
+  <%= @lostbook.press %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @lostbook.price %>
+</p>
+
+<%= link_to 'Edit', edit_lostbook_path(@lostbook) %> |
+<%= link_to 'Back', lostbooks_path %>

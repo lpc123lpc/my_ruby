@@ -29,6 +29,7 @@
           <td><%= link_to '还书', borrowtable_path(id: borrowtable.id, book_id: borrowtable.bookid, book_title: borrowtable.bookname,
                                                borrower_id: borrowtable.borrowerid, return_date: borrowtable.returndate),
                         method: :delete, data: { confirm: '确定还书？'} %></td>
+          <td><%= link_to '图书丢失', new_lostbook_path(:book_id => borrowtable.bookid, :book_title => borrowtable.bookname) %></td>
         <% end %>
 
       </tr>

@@ -5,6 +5,9 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    if current_user.student?
+      @my_information = current_user.student
+    end
   end
 
   # GET /students/1

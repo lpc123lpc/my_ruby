@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>丢失图书</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>图书编号</th>
+      <th>书名</th>
+      <th>借阅者学号</th>
+      <th>丢失日期</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if current_user.admin? %>
+    <% @lostbooks.each do |lostbook| %>
+      <tr>
+        <td><%= lostbook.bookid %></td>
+        <td><%= lostbook.booktitle %></td>
+        <td><%= lostbook.borrowerid %></td>
+        <td><%= lostbook.lostdate %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to '采购成功', lostbook_path(id: lostbook.id, book_id: lostbook.bookid, book_title: lostbook.booktitle,
+                                                 borrower_id: lostbook.borrowerid),
+                          method: :delete, data: { confirm: '确定入库？'} %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+
+  <% if current_user.student? %>
+    <% @my_lostbooks.each do |lostbook| %>
+      <tr>
+        <td><%= lostbook.bookid %></td>
+        <td><%= lostbook.booktitle %></td>
+        <td><%= lostbook.borrowerid %></td>
+        <td><%= lostbook.lostdate %></td>
+
+      </tr>
+    <% end %>
+  <% end %>
+
+
+  </tbody>
+</table>
+
+<br>
+
