@@ -10,26 +10,30 @@
       </ul>
     </div>
   <% end %>
+  <div class="card" style="width: 18rem;background: cornflowerblue">
+    <div class="card-header">
+      详细信息
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>图书编号:</strong>
+        <%= params[:book_id] %>
+      </li>
+      <li class="list-group-item">
+        <strong>书名:</strong>
+        <%= params[:book_title] %>
+      </li>
+      <li class="list-group-item">
+        <strong>丢失时间:</strong>
+        <%= Date.today %>
+      </li>
+      <li class="list-group-item">
+        <strong>借阅人学号:</strong>
+        <%= current_user.userid %>
+      </li>
 
-  <p>
-    <strong>图书编号:</strong>
-    <%= params[:book_id] %>
-  </p>
-
-  <p>
-    <strong>书名:</strong>
-    <%= params[:book_title] %>
-  </p>
-
-  <p>
-    <strong>丢失时间:</strong>
-    <%= Date.today %>
-  </p>
-
-  <p>
-    <strong>借阅人学号:</strong>
-    <%= current_user.userid %>
-  </p>
+    </ul>
+  </div>
 
   <%= hidden_field_tag :book_id, params[:book_id] %>
 

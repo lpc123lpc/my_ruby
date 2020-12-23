@@ -10,30 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="container p-3 my-3 border">
+  <div class="form-group">
     <%= form.label :报刊编号 %>
-    <%= form.text_field :journalid %>
+    <%= form.text_field :journalid ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :报刊名 %>
-    <%= form.text_field :journalname %>
+    <%= form.text_field :journalname ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :类别 %>
     <%= form.collection_select :journaltype,Journal.journaltypes.map { |a|
-      [a.first,a.first]}, :first, :second %>
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :发行日期 %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date ,{class:"form-control"}%>
   </div>
 
 
   <div class="actions">
-    <%= form.submit "确认"%>
+    <%= form.submit "确认",class:"btn btn-primary"%>
+  </div>
   </div>
 <% end %>

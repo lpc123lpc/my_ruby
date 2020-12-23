@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <h1>历史借阅记录</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>图书编号</th>
@@ -36,8 +35,9 @@
           <td><%= historyborrowtable.borrowerid %></td>
           <td><%= historyborrowtable.borrowdate %></td>
           <td><%= historyborrowtable.returndate %></td>
-          <td><%= link_to '详细信息', historyborrowtable %></td>
-          <td><%= link_to '删除本条记录', historyborrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <td><%= link_to '删除本条记录', historyborrowtable, method: :delete, data: { confirm: 'Are you sure?' },
+                          class: "btn btn-danger" ,style: "color:black;font-size:10px;font-weight:bold" %></td>
         </tr>
       <% end %>
     <% end %>

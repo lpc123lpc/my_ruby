@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <h1>当前借阅列表</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>图书编号</th>
@@ -28,8 +27,9 @@
         <% if current_user.student? %>
           <td><%= link_to '还书', borrowtable_path(id: borrowtable.id, book_id: borrowtable.bookid, book_title: borrowtable.bookname,
                                                borrower_id: borrowtable.borrowerid, return_date: borrowtable.returndate),
-                        method: :delete, data: { confirm: '确定还书？'} %></td>
-          <td><%= link_to '图书丢失', new_lostbook_path(:book_id => borrowtable.bookid, :book_title => borrowtable.bookname) %></td>
+                        method: :delete, data: { confirm: '确定还书？'},class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold" %></td>
+          <td><%= link_to '图书丢失', new_lostbook_path(:book_id => borrowtable.bookid, :book_title => borrowtable.bookname),
+                          class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold" %></td>
         <% end %>
 
       </tr>
@@ -45,8 +45,9 @@
           <td><%= borrowtable.borrowerid %></td>
           <td><%= borrowtable.borrowdate %></td>
           <td><%= borrowtable.returndate %></td>
-          <td><%= link_to '详细信息', borrowtable %></td>
-          <td><%= link_to '删除本条记录', borrowtable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '详细信息', borrowtable ,class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold"%></td>
+          <td><%= link_to '删除本条记录', borrowtable, method: :delete, data: { confirm: 'Are you sure?' },
+                          class: "btn btn-danger" ,style: "font-size:10px"%></td>
 
         </tr>
       <% end %>

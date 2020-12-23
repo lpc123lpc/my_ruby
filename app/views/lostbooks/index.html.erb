@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <h1>丢失图书</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>图书编号</th>
@@ -24,7 +23,7 @@
         <% if current_user.admin? %>
           <td><%= link_to '采购成功', lostbook_path(id: lostbook.id, book_id: lostbook.bookid, book_title: lostbook.booktitle,
                                                  borrower_id: lostbook.borrowerid),
-                          method: :delete, data: { confirm: '确定入库？'} %></td>
+                          method: :delete, data: { confirm: '确定入库？'},class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold"  %></td>
         <% end %>
       </tr>
     <% end %>

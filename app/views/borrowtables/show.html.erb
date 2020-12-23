@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="card" style="width: 18rem;background: cornflowerblue">
+  <div class="card-header">
+    详细信息
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>图书编号:</strong>
+      <%= @borrowtable.bookid %>
+    </li>
+    <li class="list-group-item">
+      <strong>书名:</strong>
+      <%= @borrowtable.bookname %>
+    </li>
+    <li class="list-group-item">
+      <strong>借阅人学号:</strong>
+      <%= @borrowtable.borrowerid %>
+    </li>
+    <li class="list-group-item">
+      <strong>借阅时间:</strong>
+      <%= @borrowtable.borrowdate %>
+    </li>
+    <li class="list-group-item">
+      <strong>归还时间:</strong>
+      <%= @borrowtable.returndate %>
+    </li>
 
-<p>
-  <strong>图书编号:</strong>
-  <%= @borrowtable.bookid %>
-</p>
-
-<p>
-  <strong>书名:</strong>
-  <%= @borrowtable.bookname %>
-</p>
-
-<p>
-  <strong>借阅人学号:</strong>
-  <%= @borrowtable.borrowerid %>
-</p>
-
-<p>
-  <strong>借阅时间:</strong>
-  <%= @borrowtable.borrowdate %>
-</p>
-
-<p>
-  <strong>归还时间:</strong>
-  <%= @borrowtable.returndate %>
-</p>
+  </ul>
+</div>
 
 
 <%= link_to '返回', borrowtables_path %>

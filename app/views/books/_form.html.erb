@@ -10,44 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="container p-3 my-3 border">
+  <div class="form-group">
     <%= form.label :图书编号 %>
-    <%= form.text_field :id %>
+    <%= form.text_field :id ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :书名 %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :作者 %>
-    <%= form.text_field :author %>
+    <%= form.text_field :author ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :出版社 %>
-    <%= form.text_field :press %>
+    <%= form.text_field :press ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :价格 %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :入库时间 %>
-    <%= form.date_select :intime %>
+    <%= form.date_select :intime ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :类别 %>
     <%= form.collection_select :category,Book.categories.map { |a|
-      [a.first,a.first]}, :first, :second %>
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
 
   <div class="actions">
-    <%= form.submit "确认"%>
+    <%= form.submit "确认",class:"btn btn-primary"%>
+  </div>
   </div>
 <% end %>

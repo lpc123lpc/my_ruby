@@ -1,16 +1,26 @@
 <h1>高级检索</h1>
-
+<div class="container p-3 my-3 border">
 <%= form_with model: @search do |f| %>
-  <%= f.label :书名 %>
-  <%= f.text_field :title %>
+    <div class="form-group">
+      <%= f.label :书名 %>
+      <%= f.text_field :title %>
+    </div>
 
-  <%= f.label :作者 %>
-  <%= f.select :author, options_for_select(@authors), include_blank: true %><br>
+    <div class="form-group">
+      <%= f.label :作者 %>
+      <%= f.select :author, options_for_select(@authors), include_blank: true %><br>
+    </div>
 
-  <%= f.label :出版社 %>
-  <%= f.select :press, options_for_select(@presses), include_blank: true %><br><br>
+    <div class="form-group">
+      <%= f.label :出版社 %>
+      <%= f.select :press, options_for_select(@presses), include_blank: true %><br><br>
+    </div>
 
-  <%= f.submit "搜索" %>
+    <div class="actions">
+      <%= f.submit "搜索" ,class:"btn btn-primary"%>
+    </div>
+
+
 <% end %>
-
+</div>
 <p><%= link_to "返回", '/books' %></p>

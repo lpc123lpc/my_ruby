@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>教材清单</h1>
 
 <%= form_with(url: '/textbooks', method: 'get', local: true) do %>
   <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Search",class:"btn btn-primary") %>
 <% end %>
 <%= link_to "Advanced Search", new_textbooksearch_path %>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>系号</th>
@@ -20,6 +18,7 @@
   </thead>
 
   <tbody>
+
     <% @textbooks.each do |textbook| %>
       <tr>
         <td><%= textbook.department %></td>
@@ -28,17 +27,18 @@
         <td><%= textbook.author %></td>
         <td><%= textbook.press %></td>
         <% if current_user.admin? %>
-          <td><%= link_to '编辑信息', edit_textbook_path(textbook) %></td>
-          <td><%= link_to '删除教材', textbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to '编辑信息', edit_textbook_path(textbook),class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold" %></td>
+          <td><%= link_to '删除', textbook, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" ,style: "color:black;font-size:10px;font-weight:bold" %></td>
         <% end %>
       </tr>
-    <% end %>
+    <%end %>
+
   </tbody>
 </table>
 
 <br>
 <% if user_signed_in? %>
 <% if current_user.admin? %>
-<%= link_to '新增教材', new_textbook_path %>
+<%= link_to '新增教材', new_textbook_path,class: "btn btn-primary" ,style: "color:white"%>
 <% end %>
 <% end %>

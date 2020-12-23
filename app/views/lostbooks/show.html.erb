@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bookid:</strong>
-  <%= @lostbook.bookid %>
-</p>
+<div class="card" style="width: 18rem;background: cornflowerblue">
+  <div class="card-header">
+    详细信息
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>图书编号:</strong>
+      <%= @lostbook.bookid %>
+    </li>
+    <li class="list-group-item">
+      <strong>书名:</strong>
+      <%= @lostbook.booktitle %>
+    </li>
+    <li class="list-group-item">
+      <strong>丢失时间:</strong>
+      <%= @lostbook.lostdate%>
+    </li>
+    <li class="list-group-item">
+      <strong>借阅人学号:</strong>
+      <%= @lostbook.borrowerid%>
+    </li>
 
-<p>
-  <strong>Booktitle:</strong>
-  <%= @lostbook.booktitle %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @lostbook.author %>
-</p>
-
-<p>
-  <strong>Press:</strong>
-  <%= @lostbook.press %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @lostbook.price %>
-</p>
+  </ul>
+</div>
 
 <%= link_to 'Edit', edit_lostbook_path(@lostbook) %> |
 <%= link_to 'Back', lostbooks_path %>

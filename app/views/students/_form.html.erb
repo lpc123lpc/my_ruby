@@ -10,32 +10,32 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="container p-3 my-3 border">
+  <div class="form-group">
     <%= form.label :学号 %>
-    <%= form.text_field :id %>
+    <%= form.text_field :id ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :姓名 %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name,{class:"form-control"} %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :性别 %>
     <%= form.collection_select :gender,Student.genders.map { |a|
-      [a.first,a.first]}, :first, :second%>
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :系号 %>
     <%= form.collection_select :department,Student.departments.map { |a|
-      [a.first,a.first]}, :first, :second %>
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :信用分 %>
-    <%= form.text_field :credit %>
+    <%= form.text_field :credit ,{class:"form-control"}%>
   </div>
 
   <%= hidden_field_tag :registration, Date.today %>
@@ -52,8 +52,8 @@
   </p>
 
 
-
   <div class="actions">
-    <%= form.submit "确认"%>
+    <%= form.submit "确认",class:"btn btn-primary"%>
   </div>
 <% end %>
+</div>

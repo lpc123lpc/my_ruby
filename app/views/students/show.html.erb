@@ -1,39 +1,39 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>学号:</strong>
-  <%= @student.id %>
-</p>
+<div class="card" style="width: 18rem;background: cornflowerblue">
+  <div class="card-header">
+    详细信息
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>学号:</strong>
+      <%= @student.id %>
+    </li>
+    <li class="list-group-item">
+      <strong>姓名:</strong>
+      <%= @student.name %>
+    </li>
+    <li class="list-group-item">
+      <strong>性别:</strong>
+      <%= @student.gender %>
+    </li>
+    <li class="list-group-item">
+      <strong>系号:</strong>
+      <%= @student.department %>
+    </li>
+    <li class="list-group-item">
+      <strong>注册日期:</strong>
+      <%= @student.registration %>
+    </li>
+    <li class="list-group-item">
+      <strong>有效期:</strong>
+      <%=@student.validity %>
+    </li>
+    <li class="list-group-item">
+      <strong>信用分:</strong>
+      <%= @student.credit %>
+    </li>
+  </ul>
+</div>
 
-<p>
-  <strong>姓名:</strong>
-  <%= @student.name %>
-</p>
-
-<p>
-  <strong>性别:</strong>
-  <%= @student.gender %>
-</p>
-
-<p>
-  <strong>系号:</strong>
-  <%= @student.department %>
-</p>
-
-<p>
-  <strong>注册日期:</strong>
-  <%= @student.registration %>
-</p>
-
-<p>
-  <strong>有效期:</strong>
-  <%= @student.validity %>
-</p>
-
-<p>
-  <strong>信用分:</strong>
-  <%= @student.credit %>
-</p>
-
-<%= link_to '编辑', edit_student_path(@student) %> |
+<%= link_to '编辑', edit_student_path(@student) ,class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold"%> |
 <%= link_to '返回', students_path %>

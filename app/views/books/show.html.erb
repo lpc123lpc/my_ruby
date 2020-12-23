@@ -1,43 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>图书编号:</strong>
-  <%= @book.id %>
-</p>
-
-<p>
-  <strong>书名:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>作者:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>出版社:</strong>
-  <%= @book.press %>
-</p>
-
-<p>
-  <strong>价格:</strong>
-  <%= @book.price %>
-</p>
-
-<p>
-  <strong>入库时间:</strong>
-  <%= @book.intime %>
-</p>
-
-<p>
-  <strong>类别:</strong>
-  <%= @book.category %>
-</p>
-
-<p>
-  <strong>图书状态:</strong>
-  <%= @book.state %>
-</p>
-
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    详细信息
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>图书编号:</strong>
+      <%= @book.id %>
+    </li>
+    <li class="list-group-item">
+      <strong>书名:</strong>
+      <%= @book.title %>
+    </li>
+    <li class="list-group-item">
+      <strong>作者:</strong>
+      <%= @book.author %>
+    </li>
+    <li class="list-group-item">
+      <strong>出版社:</strong>
+      <%= @book.press %>
+    </li>
+    <li class="list-group-item">
+      <strong>价格:</strong>
+      <%= @book.price %>
+    </li>
+    <li class="list-group-item">
+      <strong>入库时间:</strong>
+      <%= @book.intime %>
+    </li>
+    <li class="list-group-item">
+      <strong>类别:</strong>
+      <%= @book.category %>
+    </li>
+    <li class="list-group-item">
+      <strong>图书状态:</strong>
+      <%= @book.state %>
+    </li>
+  </ul>
+</div>
 <%= link_to '返回', books_path %>

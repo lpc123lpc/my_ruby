@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <h1>待确认图书</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>图书编号</th>
@@ -26,9 +25,9 @@
         <td><%= unaffirmedbook.overdue %></td>
         <td><%= link_to '确认归还', unaffirmedbook_path(id: unaffirmedbook.id, book_id: unaffirmedbook.bookid,book_title: unaffirmedbook.booktitle,
                                                     overdue: unaffirmedbook.overdue, borrower_id: unaffirmedbook.borrowerid),
-                        method: :delete, data: { confirm: '确定还书？'} %></td>
+                        method: :delete, data: { confirm: '确定还书？'},class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold"  %></td>
         <td><%= link_to '图书损坏', new_damagebook_path(:book_id => unaffirmedbook.bookid, :book_title => unaffirmedbook.booktitle,
-                :borrower_id => unaffirmedbook.borrowerid) %></td>
+                :borrower_id => unaffirmedbook.borrowerid) ,class: "btn btn-danger" ,style: "color:black;font-size:10px;font-weight:bold"%></td>
 
       </tr>
     <% end %>

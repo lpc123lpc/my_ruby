@@ -45,7 +45,7 @@ class LostbooksController < ApplicationController
     student.save!
 
 
-    borrowbook = Borrowtable.find_by book_title
+    borrowbook = Borrowtable.find_by bookname: book_title
     borrowbook.destroy
 
 

@@ -1,23 +1,28 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>报刊编号:</strong>
-  <%= @journal.journalid %>
-</p>
 
-<p>
-  <strong>报刊名:</strong>
-  <%= @journal.journalname %>
-</p>
+<div class="card" style="width: 18rem;background: cornflowerblue">
+  <div class="card-header">
+    详细信息
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <strong>报刊编号:</strong>
+      <%= @journal.journalid %>
+    </li>
+    <li class="list-group-item">
+      <strong>报刊名:</strong>
+      <%= @journal.journalname %>
+    </li>
+    <li class="list-group-item">
+      <strong>类别:</strong>
+      <%= @journal.journaltype %>
+    </li>
+    <li class="list-group-item">
+      <strong>发行日期:</strong>
+      <%= @journal.date %>
+    </li>
 
-<p>
-  <strong>类别:</strong>
-  <%= @journal.journaltype %>
-</p>
-
-<p>
-  <strong>发行日期:</strong>
-  <%= @journal.date %>
-</p>
-
+    </li>
+  </ul>
+</div>
 <%= link_to '返回', journals_path %>
