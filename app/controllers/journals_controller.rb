@@ -42,7 +42,7 @@ class JournalsController < ApplicationController
   def update
     respond_to do |format|
       if @journal.update(journal_params)
-        format.html { redirect_to @journal, notice: '删除报刊成功.' }
+        format.html { redirect_to @journal, notice: '更改报刊信息成功.' }
         format.json { render :show, status: :ok, location: @journal }
       else
         format.html { render :edit }
