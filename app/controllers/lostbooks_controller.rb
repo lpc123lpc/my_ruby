@@ -85,6 +85,9 @@ class LostbooksController < ApplicationController
     book.state = "未借阅"
     book.save!
 
+    historyborrowtable = Historyborrowtable.where(["bookid = ?", book_id]).last
+    historyborrowtable.returndate = Date.today + 1.day
+    historyborrowtable.save!
 
 
     @lostbook.destroy

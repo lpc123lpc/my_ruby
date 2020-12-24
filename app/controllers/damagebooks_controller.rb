@@ -73,6 +73,10 @@ class DamagebooksController < ApplicationController
     book.state = "未借阅"
     book.save!
 
+    historyborrowtable = Historyborrowtable.where(["bookid = ?", book_id]).last
+    historyborrowtable.returndate = Date.today + 1.day
+    historyborrowtable.save!
+
     @damagebook.destroy
     respond_to do |format|
       format.html { redirect_to damagebooks_url, notice: '入库成功！' }

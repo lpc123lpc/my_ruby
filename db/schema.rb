@@ -49,14 +49,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_085859) do
     t.index ["bookid"], name: "index_damagebooks_on_bookid", unique: true
   end
 
-  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "departmentid"
-    t.string "departmentname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["departmentid"], name: "index_departments_on_departmentid", unique: true
-  end
-
   create_table "historyborrowtables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "bookname"
@@ -91,16 +83,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_085859) do
     t.string "lostdate"
     t.string "borrowerid"
     t.index ["student_id"], name: "index_lostbooks_on_student_id"
-  end
-
-  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "departmentid"
-    t.string "term"
-    t.string "bookname"
-    t.string "authorname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["departmentid"], name: "index_materials_on_departmentid", unique: true
   end
 
   create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

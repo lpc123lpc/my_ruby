@@ -2,11 +2,10 @@ const Chart = require('chart.js');
 
 function getDataFromElement(eid) {
     const element = document.getElementById(eid);
+    //const test = JSON.parse(element.dataset)
     const data = JSON.parse(element.dataset.chartdata)
     const cdata = Object.keys(data).map(x => ({"x": x, "y": data[x]}));
-    //const cdata = Object.keys(element.dataset.chartdata).map(x => ({"x": x, "y": y}));
     return [element, cdata];
-    //return element;
 }
 
 function drawSimpleChart(data, name, color) {
