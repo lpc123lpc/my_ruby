@@ -1,3 +1,9 @@
+<p>
+
+</p>
+<% if !user_signed_in? %>
+  <h1>请点击右上角登录，没有账号请联系管理员</h1>
+<% end %>
 
 <% if user_signed_in? %>
   <h1>图书信息</h1>
@@ -38,8 +44,8 @@
         <td><%= book.state %></td>
         <td><%= link_to '详细信息', book,class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold" %></td>
         <% if current_user.admin? %>
-          <td><%= link_to '编辑信息', edit_book_path(book) ,class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold"%></td>
-          <td><%= link_to '删除', book, method: :delete, data: { confirm: '确定删除图书?'},class: "btn btn-danger" ,style: "color:black;font-size:10px;font-weight:bold" %></td>
+          <td><%= link_to '编辑信息', edit_book_path(book) ,class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold"%></td>
+          <td><%= link_to '删除', book, method: :delete, data: { confirm: '确定删除图书?'},class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
         <% end %>
         <% if current_user.student? %>
           <% if book.state == "已借阅" || book.state == "已损坏" || book.state == "丢失"%>

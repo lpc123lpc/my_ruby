@@ -24,17 +24,28 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <% if user_signed_in? %>
         <% if current_user.admin? %>
+          <%= render 'layouts/nav_link', text: "图书列表", ctrl: "books" %>
+          <%= render 'layouts/nav_link', text: "报刊", ctrl: "journals" %>
+          <%= render 'layouts/nav_link', text: "教材清单", ctrl: "textbooks" %>
+          <%= render 'layouts/nav_link', text: "损坏图书", ctrl: "damagebooks" %>
+          <%= render 'layouts/nav_link', text: "丢失图书", ctrl: "lostbooks" %>
+          <%= render 'layouts/nav_link', text: "待确认图书", ctrl: "unaffirmedbooks" %>
+          <%= render 'layouts/nav_link', text: "当前借阅列表", ctrl: "borrowtables" %>
+          <%= render 'layouts/nav_link', text: "历史借阅记录", ctrl: "historyborrowtables" %>
           <%= render 'layouts/nav_link', text: "统计信息", ctrl: "statistics" %>
           <%= render 'layouts/nav_link', text: "学生信息", ctrl: "students" %>
-          <%= render 'layouts/nav_link', text: "待确认图书", ctrl: "unaffirmedbooks" %>
-          <%= render 'layouts/nav_link', text: "损坏图书", ctrl: "damagebooks" %>
         <% end %>
-        <%= render 'layouts/nav_link', text: "图书列表", ctrl: "books" %>
-        <%= render 'layouts/nav_link', text: "报刊", ctrl: "journals" %>
-        <%= render 'layouts/nav_link', text: "教材清单", ctrl: "textbooks" %>
-        <%= render 'layouts/nav_link', text: "丢失图书", ctrl: "lostbooks" %>
-        <%= render 'layouts/nav_link', text: "当前借阅列表", ctrl: "borrowtables" %>
-        <%= render 'layouts/nav_link', text: "历史借阅记录", ctrl: "historyborrowtables" %>
+        <% if current_user.student? %>
+          <%= render 'layouts/nav_link', text: "图书列表", ctrl: "books" %>
+          <%= render 'layouts/nav_link', text: "报刊", ctrl: "journals" %>
+          <%= render 'layouts/nav_link', text: "教材清单", ctrl: "textbooks" %>
+          <%= render 'layouts/nav_link', text: "丢失图书", ctrl: "lostbooks" %>
+          <%= render 'layouts/nav_link', text: "当前借阅列表", ctrl: "borrowtables" %>
+          <%= render 'layouts/nav_link', text: "历史借阅记录", ctrl: "historyborrowtables" %>
+        <% end %>
+
+
+
       <% end %>
     </ul>
 

@@ -26,6 +26,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.image = params[:book][:image]
+    @book.state = "未借阅"
 
     respond_to do |format|
       if @book.save

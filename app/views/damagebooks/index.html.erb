@@ -1,4 +1,6 @@
+<p>
 
+</p>
 <h1>损坏图书</h1>
 
 <table class="table">
@@ -21,7 +23,7 @@
         <td><%= damagebook.date %></td>
         <td><%= link_to '修复完成，出库', damagebook_path(id: damagebook.id, book_id: damagebook.bookid,
                                                    book_title: damagebook.bookname),
-                        method: :delete, data: { confirm: '确定出库?' } %></td>
+                        method: :delete, data: { confirm: '确定出库?' },class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
       </tr>
     <% end %>
   </tbody>

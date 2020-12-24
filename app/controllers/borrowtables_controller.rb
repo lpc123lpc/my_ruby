@@ -94,6 +94,7 @@ class BorrowtablesController < ApplicationController
                                         :returndate => return_date, :overdue => overdue, :borrowerid => borrowerid)
     unaffirmedbook.save!
     @borrowtable.destroy
+
     respond_to do |format|
       format.html { redirect_to borrowtables_url, notice: '还书成功' }
       format.json { head :no_content }

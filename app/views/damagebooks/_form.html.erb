@@ -1,3 +1,6 @@
+<p>
+
+</p>
 <%= form_with(model: damagebook, local: true) do |form| %>
   <% if damagebook.errors.any? %>
     <div id="error_explanation">
@@ -11,25 +14,28 @@
     </div>
   <% end %>
 
-  <p>
-    <strong>图书编号:</strong>
-    <%= params[:book_id] %>
-  </p>
 
-  <p>
-    <strong>书名:</strong>
-    <%= params[:book_title] %>
-  </p>
 
-  <p>
+    <li class="list-group-item">
+      <strong>图书编号:</strong>
+      <%= params[:book_id] %>
+    </li>
+
+    <li class="list-group-item">
+      <strong>书名:</strong>
+      <%= params[:book_title] %>
+    </li>
+
+
+    <li class="list-group-item">
     <strong>借阅者学号:</strong>
     <%= params[:borrower_id] %>
-  </p>
+  </li>
 
-  <p>
+    <li class="list-group-item">
     <strong>损坏日期:</strong>
     <%= Date.today %>
-  </p>
+  </li>
 
   <%= hidden_field_tag :book_id, params[:book_id] %>
 
@@ -39,13 +45,18 @@
 
   <%= hidden_field_tag :damage_date, Date.today %>
 
-
-  <div class="field">
-    <%= form.label :损坏等级 %>
+  <li class="list-group-item">
+    <div class="form-group">
+      <strong>损坏等级:</strong>
     <%= form.collection_select :level,Damagebook.levels.map { |a|
-      [a.first,a.first]}, :first, :second %>
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
   </div>
+  </li>
 
+
+  <p>
+
+  </p>
   <div class="actions">
     <%= form.submit "确认"%>
   </div>

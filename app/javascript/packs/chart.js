@@ -12,7 +12,7 @@ function getDataFromElement(eid) {
 function drawSimpleChart(data, name, color) {
     const [element, outByDate] = data;
     new Chart(element, {
-        type: 'bar',
+        type: 'line',
         data: {
             datasets: [
                 {

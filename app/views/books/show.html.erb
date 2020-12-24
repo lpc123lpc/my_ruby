@@ -1,4 +1,7 @@
-<%= image_tag(@book.image.url,width: "300px",height: "300px")%>
+<p></p>
+<div class="container">
+  <div class="row">
+<%= image_tag(@book.image.url,width: "300px",height: "405px")%>
 <div class="card" style="width: 18rem;">
 
   <div class="card-header">
@@ -38,5 +41,7 @@
       <%= @book.state %>
     </li>
   </ul>
+</div>
+</div>
 </div>
 <%= link_to '返回', books_path %>

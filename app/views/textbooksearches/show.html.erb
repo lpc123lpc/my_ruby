@@ -1,9 +1,10 @@
+<p></p>
 <h1>搜索结果</h1>
 
 <% if @textbooksearch.textbooksearch_textbook.empty? %>
   <p>No Textbook were found.</p>
 <% else %>
-  <table>
+  <table class="table">
     <thead>
     <tr>
       <th>系号</th>
@@ -25,8 +26,8 @@
         <td><%= textbook.press %></td>
         <td><%= textbook.term %></td>
         <% if current_user.admin? %>
-          <td><%= link_to '编辑信息', edit_textbook_path(textbook) %></td>
-          <td><%= link_to '删除教材', textbook, method: :delete, data: { confirm: '确定删除本教材?' } %></td>
+          <td><%= link_to '编辑信息', edit_textbook_path(textbook),class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
+          <td><%= link_to '删除', textbook, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
         <% end %>
       </tr>
     <% end %>
