@@ -10,43 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_144458) do
+ActiveRecord::Schema.define(version: 2020_12_23_085859) do
 
-  create_table "authors", force: :cascade do |t|
-    t.string "authorid"
-    t.string "name"
-    t.string "nationality"
-    t.date "birthdate"
-    t.date "death"
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "bookid"
+    t.string "title"
+    t.string "author"
+    t.string "press"
+    t.float "price"
+    t.date "intime"
+    t.integer "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["authorid"], name: "index_authors_on_authorid", unique: true
+    t.string "state"
+    t.index ["bookid"], name: "index_books_on_bookid", unique: true
   end
 
-  create_table "bookcases", force: :cascade do |t|
-    t.string "bookcaseid"
-    t.integer "floor"
-    t.string "partition"
-    t.string "number"
-    t.integer "line"
-    t.integer "column"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["bookcaseid"], name: "index_bookcases_on_bookcaseid", unique: true
-  end
-
-  create_table "bookclasees", force: :cascade do |t|
-    t.string "classid"
-    t.string "classname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["classid"], name: "index_bookclasees_on_classid", unique: true
-  end
-
-# Could not dump table "books" because of following StandardError
-#   Unknown type 'attachment' for column 'image'
-
-  create_table "borrowtables", force: :cascade do |t|
+  create_table "borrowtables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "bookname"
     t.string "borrowerid"
@@ -54,12 +34,12 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.date "returndate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "student_id", null: false
+    t.bigint "student_id", null: false
     t.index ["bookid"], name: "index_borrowtables_on_bookid", unique: true
     t.index ["student_id"], name: "index_borrowtables_on_student_id"
   end
 
-  create_table "damagebooks", force: :cascade do |t|
+  create_table "damagebooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "bookname"
     t.integer "level"
@@ -69,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.index ["bookid"], name: "index_damagebooks_on_bookid", unique: true
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "departmentid"
     t.string "departmentname"
     t.datetime "created_at", precision: 6, null: false
@@ -77,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.index ["departmentid"], name: "index_departments_on_departmentid", unique: true
   end
 
-  create_table "historyborrowtables", force: :cascade do |t|
+  create_table "historyborrowtables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "bookname"
     t.string "borrowerid"
@@ -85,11 +65,11 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.string "returndate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "student_id", null: false
+    t.bigint "student_id", null: false
     t.index ["student_id"], name: "index_historyborrowtables_on_student_id"
   end
 
-  create_table "journals", force: :cascade do |t|
+  create_table "journals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "journalid"
     t.string "journalname"
     t.datetime "created_at", precision: 6, null: false
@@ -99,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.index ["journalid"], name: "index_journals_on_journalid", unique: true
   end
 
-  create_table "lostbooks", force: :cascade do |t|
+  create_table "lostbooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "booktitle"
     t.string "author"
@@ -107,26 +87,13 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "student_id", null: false
+    t.bigint "student_id", null: false
     t.string "lostdate"
     t.string "borrowerid"
     t.index ["student_id"], name: "index_lostbooks_on_student_id"
   end
 
-  create_table "managers", force: :cascade do |t|
-    t.string "managerid"
-    t.string "name"
-    t.integer "gender"
-    t.date "intime"
-    t.string "phone"
-    t.string "weixin"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["managerid"], name: "index_managers_on_managerid", unique: true
-  end
-
-  create_table "materials", force: :cascade do |t|
+  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "departmentid"
     t.string "term"
     t.string "bookname"
@@ -136,16 +103,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.index ["departmentid"], name: "index_materials_on_departmentid", unique: true
   end
 
-  create_table "presses", force: :cascade do |t|
-    t.string "pressid"
-    t.string "pressname"
-    t.date "pressdate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["pressid"], name: "index_presses_on_pressid", unique: true
-  end
-
-  create_table "searches", force: :cascade do |t|
+  create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.string "press"
@@ -153,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "studentid"
     t.string "name"
     t.integer "gender"
@@ -163,12 +121,12 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.integer "credit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["studentid"], name: "index_students_on_studentid", unique: true
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
-  create_table "textbooks", force: :cascade do |t|
+  create_table "textbooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "department"
     t.string "term"
     t.string "bookname"
@@ -178,7 +136,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "textbooksearches", force: :cascade do |t|
+  create_table "textbooksearches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookname"
     t.string "department"
     t.string "term"
@@ -186,7 +144,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "unaffirmedbooks", force: :cascade do |t|
+  create_table "unaffirmedbooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
     t.string "booktitle"
     t.string "expected_return"
@@ -197,7 +155,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_144458) do
     t.string "borrowerid"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
