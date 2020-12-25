@@ -1,0 +1,52 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container p-3 my-3 border">
+  <div class="form-group">
+    <strong>图书编号：</strong>
+    <%= @book.id %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :书名 %>
+    <%= form.text_field :title ,{class:"form-control"}%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :作者 %>
+    <%= form.text_field :author ,{class:"form-control"}%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :出版社 %>
+    <%= form.text_field :press ,{class:"form-control"}%>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :入库时间 %>
+    <%= form.date_select :intime ,{class:"form-control"}%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :类别 %>
+    <%= form.collection_select :category,Book.categories.map { |a|
+      [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
+  </div>
+
+
+<p></p>
+    <div class="actions">
+    <%= form.submit "确认",class:"btn btn-primary"%>
+  </div>
+  </div>
+<% end %>

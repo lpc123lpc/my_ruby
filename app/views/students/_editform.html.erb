@@ -1,0 +1,62 @@
+<p >
+
+</p>
+<%= form_with(model: student, local: true) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <strong>学号：</strong>
+    <%= @student.id %>
+  </div>
+
+    <div class="form-group">
+      <%= form.label :姓名 %>
+      <%= form.text_field :name,{class:"form-control"} %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :性别 %>
+      <%= form.collection_select :gender,Student.genders.map { |a|
+        [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :系号 %>
+      <%= form.collection_select :department,Student.departments.map { |a|
+        [a.first,a.first]}, :first, :second ,{class:"form-control"}%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :信用分 %>
+      <%= form.text_field :credit ,{class:"form-control"}%>
+    </div>
+
+    <%= hidden_field_tag :registration, Date.today %>
+    <%= hidden_field_tag :validity, Date.today + 365.day %>
+
+    <p>
+      <strong>注册日期:</strong>
+      <%= Date.today %>
+    </p>
+
+    <p>
+      <strong>有效日期:</strong>
+      <%= Date.today + 365.day %>
+    </p>
+
+
+    <div class="actions">
+      <%= form.submit "确认",class:"btn btn-primary"%>
+    </div>
+<% end %>
+</div>

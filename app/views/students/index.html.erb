@@ -30,7 +30,6 @@
         <td><%= student.credit %></td>
         <td><%= link_to '详细信息', student ,class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold"%></td>
         <td><%= link_to '编辑信息', edit_student_path(student),class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold"%></td>
-        <td><%= link_to '删除', student, method: :delete, data: { confirm: '确定删除学生?' },class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold"%></td>
       </tr>
     <% end %>
 
