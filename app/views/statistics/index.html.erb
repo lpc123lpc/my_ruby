@@ -1,7 +1,32 @@
 <p></p>
 <div class="row">
   <div class="col-sm-4">
-    <canvas id="chart-out-by-date" width="800" height="800" data-chartdata="<%= json_escape(@history) %>"></canvas>
+    <canvas id="chart-out-by-date" width="1600px" height="1600px" data-chartdata="<%= json_escape(@history) %>"></canvas>
+  </div>
+  <div class="col">
+    <table class="table" style="size:auto">
+    <thead>
+    <tr>
+      <th style="font-size: 25px">日期</th>
+      <th style="font-size: 25px">借阅数量</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @history1.each do |history| %>
+      <tr>
+        <td style="font-size: 20px"><%= history[0] %></td>
+        <td style="font-size: 20px"><%= history[1] %></td>
+
+
+      </tr>
+    <% end %>
+
+    </tbody>
+    </table>
   </div>
 </div>
-<%= javascript_pack_tag 'chart' %>
+<%= javascript_pack_tag 'chart'%>
+
+<p></p>

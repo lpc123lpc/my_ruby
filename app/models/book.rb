@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   self.inheritance_column = "not_sti"
-  enum category: [:文学,:计算机,:数学,:物理]
+  enum category: [:文学,:计算机,:数学,:物理,:小说]
 
 
 

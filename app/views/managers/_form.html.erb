@@ -1,0 +1,44 @@
+<%= form_with(model: manager, local: true) do |form| %>
+  <% if manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manager.errors.count, "error") %> prohibited this manager from being saved:</h2>
+
+      <ul>
+        <% manager.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container p-3 my-3 border">
+  <div class="form-group">
+    <%= form.label :管理员ID %>
+    <%= form.text_field :managerid ,{class:"form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :姓名 %>
+    <%= form.text_field :name  ,{class:"form-control"}%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :性别 %>
+    <%= form.collection_select :gender,Manager.genders.map { |a|
+      [a.first,a.first]}, :first, :second ,{class:"form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :联系电话 %>
+    <%= form.text_field :phone  ,{class:"form-control"}%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :电子邮箱 %>
+    <%= form.text_field :email  ,{class:"form-control"}%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "确认",class:"btn btn-primary"%>
+  </div>
+<% end %>
+</div>

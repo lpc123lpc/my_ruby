@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.new
-user.userid = 'admin1'
-user.username = 'admin'
-user.email = 'admin1@1.com'
+user.userid = 'root'
+user.username = 'superadmin'
+user.email = 'superadmin@1.com'
 user.password = '123456'
 user.password_confirmation = '123456'
-user.role = "admin"
+user.role = "superadmin"
 user.save!

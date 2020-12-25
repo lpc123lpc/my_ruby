@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_085859) do
+ActiveRecord::Schema.define(version: 2020_12_24_120027) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "bookid"
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(version: 2020_12_23_085859) do
     t.index ["student_id"], name: "index_lostbooks_on_student_id"
   end
 
+  create_table "managers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "managerid"
+    t.integer "gender"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_managers_on_user_id"
+  end
+
   create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -156,5 +168,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_085859) do
   add_foreign_key "borrowtables", "students"
   add_foreign_key "historyborrowtables", "students"
   add_foreign_key "lostbooks", "students"
+  add_foreign_key "managers", "users"
   add_foreign_key "students", "users"
 end

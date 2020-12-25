@@ -20,7 +20,7 @@
         <td><%= lostbook.booktitle %></td>
         <td><%= lostbook.borrowerid %></td>
         <td><%= lostbook.lostdate %></td>
-        <% if current_user.admin? %>
+        <% if current_user.admin? || current_user.superadmin?%>
           <td><%= link_to '采购成功', lostbook_path(id: lostbook.id, book_id: lostbook.bookid, book_title: lostbook.booktitle,
                                                  borrower_id: lostbook.borrowerid),
                           method: :delete, data: { confirm: '确定入库？'},class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold"  %></td>

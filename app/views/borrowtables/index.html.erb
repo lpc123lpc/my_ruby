@@ -36,7 +36,7 @@
     <% end %>
   <% end %>
 
-    <% if current_user.admin? %>
+    <% if current_user.admin? || current_user.superadmin?%>
       <% @borrowtables.each do |borrowtable| %>
         <tr>
 

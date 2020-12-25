@@ -27,7 +27,7 @@
         <td><%= textbook.bookname %></td>
         <td><%= textbook.author %></td>
         <td><%= textbook.press %></td>
-        <% if current_user.admin? %>
+        <% if current_user.admin? || current_user.superadmin?%>
           <td><%= link_to '编辑信息', edit_textbook_path(textbook),class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
           <td><%= link_to '删除', textbook, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
         <% end %>
@@ -39,7 +39,7 @@
 
 <br>
 <% if user_signed_in? %>
-<% if current_user.admin? %>
+<% if current_user.admin? || current_user.superadmin?%>
 <%= link_to '新增教材', new_textbook_path,class: "btn btn-primary" ,style: "color:white"%>
 <% end %>
 <% end %>

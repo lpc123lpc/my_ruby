@@ -7,10 +7,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :userid, uniqueness: true
 
-  enum role: [:admin, :student]
+  enum role: [:admin, :student, :superadmin]
 
   has_one :student
-
+  has_one :manager
 
 
   def display_name

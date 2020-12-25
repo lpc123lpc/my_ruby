@@ -7,14 +7,21 @@
 
 <% if user_signed_in? %>
   <h1>图书信息</h1>
-
+<div class="row">
+  <div class="col">
   <%= form_with(url: '/books', method: 'get', local: true) do %>
     <%= text_field_tag(:search) %>
     <%= submit_tag("搜索",class:"btn btn-primary",style: "font-size:10px;font-weight:100px")%>
   <% end %>
 
   <%= link_to "高级检索", new_search_path %>
-
+  </div>
+  <div class="col" style="margin-left: 400px">
+    <% if current_user.admin? || current_user.superadmin?%>
+      <%= link_to '新增图书', new_book_path,class: "btn btn-primary",style: "color:white" %>
+    <% end %>
+  </div>
+  </div>
 <table class="table">
   <thead>
     <tr>
@@ -22,7 +29,6 @@
       <th>书名</th>
       <th>作者</th>
       <th>出版社</th>
-      <th>价格</th>
       <th>入库日期</th>
       <th>图书类别</th>
       <th>图书状态</th>
@@ -38,12 +44,11 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.press %></td>
-        <td><%= book.price %></td>
         <td><%= book.intime %></td>
         <td><%= book.category %></td>
         <td><%= book.state %></td>
         <td><%= link_to '详细信息', book,class: "btn btn-success",style: "color: white;font-size:10px;font-weight:bold" %></td>
-        <% if current_user.admin? %>
+        <% if current_user.admin? || current_user.superadmin?%>
           <td><%= link_to '编辑信息', edit_book_path(book) ,class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold"%></td>
           <td><%= link_to '删除', book, method: :delete, data: { confirm: '确定删除图书?'},class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
         <% end %>
@@ -65,7 +70,5 @@
 </table>
 
 <br>
-<% if current_user.admin? %>
-  <%= link_to '新增图书', new_book_path,class: "btn btn-primary",style: "color:white" %>
-<% end %>
+
 <% end %>

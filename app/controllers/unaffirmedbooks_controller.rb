@@ -61,6 +61,9 @@ class UnaffirmedbooksController < ApplicationController
     if overdue == "已逾期"
       student = Student.find(borrower_id)
       student.credit = student.credit - 5
+      if student.credit < 0
+        student.credit = 0
+      end
       student.save!
     else
       student = Student.find(borrower_id)
@@ -71,7 +74,7 @@ class UnaffirmedbooksController < ApplicationController
     end
 
 
-    historyborrowtable = Historyborrowtable.find(book_id)
+    historyborrowtable = Historyborrowtable.where(["bookid = ?", book_id]).last
     historyborrowtable.returndate = Date.today
     historyborrowtable.save!
 

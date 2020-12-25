@@ -19,7 +19,7 @@
         <td><%= journal.journalname %></td>
         <td><%= journal.journaltype %></td>
         <td><%= journal.date %></td>
-        <% if current_user.admin? %>
+        <% if current_user.admin? || current_user.superadmin?%>
           <td><%= link_to '编辑信息', edit_journal_path(journal),class: "btn btn-warning" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
           <td><%= link_to '删除', journal, method: :delete, data: { confirm: '确定删除报刊?' },class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold" %></td>
         <% end %>
@@ -30,7 +30,7 @@
 
 <br>
 <% if user_signed_in? %>
-<% if current_user.admin? %>
+<% if current_user.admin? || current_user.superadmin?%>
 <%= link_to '新增报刊', new_journal_path,class: "btn btn-primary",style: "color:white" %>
 <% end %>
 <% end %>
