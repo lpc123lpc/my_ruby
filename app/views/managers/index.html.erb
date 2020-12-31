@@ -25,9 +25,8 @@
         <% if user_signed_in? %>
           <% if current_user.superadmin? %>
         <td><%= link_to '编辑信息', edit_manager_path(manager),class: "btn btn-warning" ,style: "font-size:10px;font-weight:bold"%></td>
-        <td><%= link_to '删除', manager, method: :delete, data: { confirm: '确定删除管理员?' },class: "btn btn-danger" ,style: "color:white;font-size:10px;font-weight:bold"%></td>
-     <% end %>
           <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

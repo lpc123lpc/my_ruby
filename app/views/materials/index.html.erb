@@ -3,7 +3,7 @@
 <h1>教材清单</h1>
 
 <table class="table">
-  <thead>
+  <thead class="table">
     <tr>
       <th>系号</th>
       <th>学期</th>
@@ -20,9 +20,9 @@
         <td><%= material.term %></td>
         <td><%= material.bookname %></td>
         <td><%= material.authorname %></td>
-        <td><%= link_to 'Show', material %></td>
-        <td><%= link_to 'Edit', edit_material_path(material) %></td>
-        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细信息', material ,class: "btn btn-primary"%></td>
+        <td><%= link_to '编辑', edit_material_path(material),class: "btn btn-warning" %></td>
+        <td><%= link_to '删除', material, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
